@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Philippines - Pearl of the Orient</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #0066cc;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #004080;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #004080;
+            color: white;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #0066cc;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ffcc00;
+            margin: 10px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1586016413664-864c0dd76f53?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-left: 5%;
+        }
+        
+        .nav-links {
+            margin-right: 5%;
+        }
+        
+        .nav-links a {
+            color: white;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Destinations Section */
+        .destinations {
+            background: white;
+        }
+        
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .destination-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .destination-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .destination-info {
+            padding: 20px;
+        }
+        
+        .destination-info h3 {
+            margin-bottom: 10px;
+            color: #0066cc;
+        }
+        
+        /* Culture Section */
+        .culture {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        }
+        
+        .culture-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .culture-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .culture-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .culture-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Activities Section */
+        .activities {
+            background: white;
+        }
+        
+        .activity-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .activity-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .activity-icon {
+            font-size: 40px;
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(rgba(0, 102, 204, 0.8), rgba(0, 102, 204, 0.8)), url('https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+        }
+        
+        /* Footer */
+        footer {
+            background: #003366;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .culture-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Discover Philippines</div>
+        <div class="nav-links">
+            <a href="#destinations">Destinations</a>
+            <a href="#culture">Culture</a>
+            <a href="#activities">Activities</a>
+            <a href="#testimonials">Testimonials</a>
+        </div>
+    </nav>
+
+    <!-- Header/Hero Section -->
+    <header>
+        <div class="hero-content">
+            <h1>Discover the Pearl of the Orient</h1>
+            <p>Experience the breathtaking beauty, rich culture, and warm hospitality of the Philippines</p>
+            <a href="#destinations" class="btn">Explore Now</a>
+        </div>
+    </header>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <h2 class="section-title">Popular Destinations</h2>
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Palawan" class="destination-img">
+                    <div class="destination-info">
+                        <h3>Palawan</h3>
+                        <p>Home to the stunning Puerto Princesa Underground River and El Nido's breathtaking lagoons.</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Boracay" class="destination-img">
+                    <div class="destination-info">
+                        <h3>Boracay</h3>
+                        <p>Famous for its pristine white sand beaches and vibrant nightlife.</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cebu" class="destination-img">
+                    <div class="destination-info">
+                        <h3>Cebu</h3>
+                        <p>Known for its historical landmarks, beautiful waterfalls, and stunning beaches.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="culture">
+        <div class="container">
+            <h2 class="section-title">Rich Culture & Heritage</h2>
+            <div class="culture-content">
+                <div class="culture-text">
+                    <h3>Warm Hospitality and Vibrant Festivals</h3>
+                    <p>The Philippines is known for its warm and welcoming people. Filipino culture is a blend of Eastern and Western influences, creating a unique identity.</p>
+                    <p>Experience colorful festivals like Sinulog, Ati-Atihan, and Pahiyas that showcase the creativity and faith of the Filipino people.</p>
+                    <p>Enjoy traditional Filipino cuisine, a fusion of Malay, Spanish, Chinese, and American influences that will tantalize your taste buds.</p>
+                </div>
+                <div class="culture-image">
+                    <img src="https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Philippines Culture">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="activities">
+        <div class="container">
+            <h2 class="section-title">Things To Do</h2>
+            <div class="activity-cards">
+                <div class="activity-card">
+                    <div class="activity-icon">🏄</div>
+                    <h3>Island Hopping</h3>
+                    <p>Explore the countless beautiful islands and hidden lagoons.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🤿</div>
+                    <h3>Diving & Snorkeling</h3>
+                    <p>Discover vibrant coral reefs and diverse marine life.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🥾</div>
+                    <h3>Hiking & Adventure</h3>
+                    <p>Conquer majestic mountains and explore stunning landscapes.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🍽️</div>
+                    <h3>Food Tourism</h3>
+                    <p>Savor the unique and delicious Filipino cuisine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Visitor Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The Philippines has the most beautiful beaches I've ever seen. The people are incredibly friendly and welcoming."</p>
+                    <p class="testimonial-author">- Sarah, UK</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I was blown away by the natural beauty of Palawan. The Underground River is truly a wonder of nature."</p>
+                    <p class="testimonial-author">- Michael, USA</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Filipino food is amazing! From street food to fine dining, every meal was a delightful experience."</p>
+                    <p class="testimonial-author">- Aiko, Japan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We are dedicated to promoting the beauty and culture of the Philippines to the world.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@discoverph.com</p>
+                    <p>Phone: +63 912 345 6789</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p>Facebook | Instagram | Twitter</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Discover Philippines. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
